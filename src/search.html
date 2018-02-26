@@ -1,0 +1,102 @@
+<html>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <body>
+  
+    <div id="search" ng-app="myApp" ng-controller="searchCtrl"> 
+      <div >
+        <input type="text" id="query" ng-model="query" > 
+          <ul>
+            <li ng-repeat="p in user | filter: query">
+                <a ng-href="https://api.github.com/users/{{p.login}}">{{ p.login }}
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+              <img ng-src="{{p.avatar_url}}" alt="Description" /></a>
+            </li>
+          </ul>
+      </div>
+    </div>
+   
+    <script>
+    var app = angular.module('myApp', []);
+  
+    app.controller('searchCtrl', function($scope, $http) {
+      $http.get("https://api.github.com/search/users?q=tom")
+      .then(function(response) {
+          $scope.user = response.data.items;
+      });
+    });
+  
+    </script>
+    </body>
+  <style>
+    html, body {
+      height: 50%;
+    }
+
+    body {
+      font-family: 'Times New Roman';
+      font-weight: 100;
+      font-size: 14px;
+      margin: 0 auto;
+      background: rgb(88, 88, 82);
+    }
+
+    #search {
+      background: whitesmoke;
+      position: absolute;
+      left: 30%;
+      margin-left: -175px;
+      margin-top: 35px;
+      width: 900px;
+      padding: 15px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      box-shadow: inset 1px 1px 0 white;
+      height: 500%;
+    }
+
+    ul {
+      margin: 0 auto;
+      padding: 0;
+      height: 15%;
+      overflow-y: auto;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 5px 5px 0 5px;
+      border-left: none;
+      border-right: none;
+    }
+
+    li {
+      list-style: none;
+      background-color: rgba(0, 0, 0, 0.05);
+      background-image: 
+        linear-gradient(
+          90deg,
+          rgb(66, 107, 196) 10px,
+          #EEE 10px,
+          #EEE 11px,
+          transparent 11px);
+      padding: 10px 15px 10px 25px;
+      border: 1px solid #CCC;
+      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+      margin-bottom: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    #query {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 19px;
+      padding: 5px;
+      font-family: calibri light;
+      margin-bottom: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+      box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</html>
+  
+  

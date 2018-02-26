@@ -7,7 +7,7 @@
         <input type="text" id="query" ng-model="query" > 
           <ul>
             <li ng-repeat="p in user | filter: query">
-                <a ng-href="https://api.github.com/users/{{p.login}}">{{ p.login }}
+                <a ng-href="{{p.url}}">{{ p.login }}
                 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
               <img ng-src="{{p.avatar_url}}" alt="Description" /></a>
             </li>

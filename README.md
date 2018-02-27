@@ -29,6 +29,9 @@ eg: $npm init
   open any browser and run http://localhost:3000
   it will deploy the project into browser.
   
+  #How to test
+  Search by name in search bar it will sort list by name entered by user. If the user found in list to see the information about the user. It show the user information in another page.
+  
   #Built With
   AngularJS - The web framework
   NodeJS - Backend Server

@@ -30,6 +30,7 @@ eg: $npm init
   it will deploy the project into browser.
   
   #How to test
+  
   Search by name in search bar it will sort list by name entered by user. If the user found in list to see the information about the user. It show the user information in another page.
   
   #Built With
